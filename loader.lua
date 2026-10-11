@@ -1,6 +1,6 @@
 --[[
-    PL-HUB - Loader (SEM Key System)
-    Ordem: Tela de Carregamento → Painel Principal
+    PL-HUB v1.0 - Loader
+    Executa a tela de carregamento e depois o painel principal.
 ]]
 
 local BASE = "https://raw.githubusercontent.com/guizinfdk/PL-PLUS/refs/heads/main/"
@@ -13,9 +13,10 @@ if not ok1 then
     warn("[PL-HUB] Erro na tela de carregamento: " .. tostring(err1))
 end
 
-task.wait(2) -- ajuste se sua tela demorar mais
+-- 2. Espera a tela de carregamento terminar
+task.wait(2) -- ajuste o tempo se a sua tela demorar mais
 
--- 2. PAINEL PRINCIPAL
+-- 3. PAINEL PRINCIPAL
 local ok2, err2 = pcall(function()
     loadstring(game:HttpGet(BASE .. "main.lua"))()
 end)
